@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Q.5</title>
+	</head>
+	<body>
+		<script>
+			function checkPassword(form) {
+				password1 = form.password1.value;
+				password2 = form.password2.value;
+				if (password1 == "") {
+					document.getElementById("wrong").innerHTML = "Please enter Password";
+					return false;
+				} else if (password2 == "") {
+					document.getElementById("wrong").innerHTML =
+						"Please re-enter Password";
+					return false;
+				} else if (password1 != password2) {
+					document.getElementById("wrong").innerHTML =
+						"Password did not match: Please try again";
+					return false;
+				} else {
+					alert("Password correct!");
+					return true;
+				}
+			}
+		</script>
+		<br /><br />
+		<center>
+			<form onSubmit="return checkPassword(this)">
+				<input
+					type="password"
+					name="password1"
+					size="25"
+					placeholder="password"
+				/><br />
+				<input
+					type="password"
+					name="password2"
+					size="25"
+					placeholder="re-enter password"
+				/><br />
+				<div id="wrong"></div>
+				<input type="submit" value="Submit" />
+			</form>
+		</center>
+	</body>
+</html>
